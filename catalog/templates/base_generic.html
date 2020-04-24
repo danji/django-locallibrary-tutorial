@@ -21,18 +21,18 @@
   <div class="col-sm-2">
   {% block sidebar %}
   <ul class="sidebar-nav">
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'books' %}">All books</a></li>
-    <li><a href="{% url 'authors' %}">All authors</a></li>
+    <li><a href="{% url 'index' %}">主頁</a></li>
+    <li><a href="{% url 'books' %}">所有圖書</a></li>
+    <li><a href="{% url 'authors' %}">所有作者</a></li>
   </ul>
  
   <ul class="sidebar-nav">
    {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
-     <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
-     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+     <li><a href="{% url 'my-borrowed' %}">我借的書</a></li>
+     <li><a href="{% url 'logout'%}?next={{request.path}}">登出</a></li>   
    {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+     <li><a href="{% url 'login'%}?next={{request.path}}">登入</a></li>   
    {% endif %} 
   </ul>
   
@@ -41,7 +41,7 @@
    <ul class="sidebar-nav">
    <li>Staff</li>
    {% if perms.catalog.can_mark_returned %}
-   <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+   <li><a href="{% url 'all-borrowed' %}">所有被借閱的書</a></li>
    {% endif %}
    </ul>
     {% endif %}
